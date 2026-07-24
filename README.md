@@ -26,7 +26,7 @@ The analysis script is fully offline. It reads from `./data/` and makes no AWS c
 ## Requirements
 
 ```bash
-pip install boto3 questionary openpyxl python-dateutil
+pip install -r requirements.txt
 ```
 
 - **boto3** — AWS API access (no AWS CLI required)
