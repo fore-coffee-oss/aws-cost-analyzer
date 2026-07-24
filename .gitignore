@@ -1,0 +1,22 @@
+# Local data snapshots — contain account IDs, ARNs, billing amounts
+data/
+
+# Per-account config and secrets
+config.json
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated reports — contain real cost/infra data
+report.html
+report_*.html
+report_*.txt
+*.pdf
+*.xlsx
+
+temp/
+
+# Claude Code local settings
+.claude/settings.local.json

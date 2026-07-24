@@ -1,0 +1,17 @@
+{
+  "profiles": {
+    "production": {
+      "account_label": "My Company Production",
+      "tracked_rds_instances": [
+        "my-primary-db",
+        "my-replica-db"
+      ]
+    },
+    "staging": {
+      "account_label": "My Company Staging",
+      "tracked_rds_instances": [
+        "staging-primary-db"
+      ]
+    }
+  }
+}
