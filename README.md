@@ -117,19 +117,23 @@ Copy `config.json.example` to `config.json` (gitignored — never committed):
       "tracked_rds_instances": [
         "my-primary-db",
         "my-replica-db"
-      ]
+      ],
+      "datadog": true
     },
     "staging": {
       "account_label": "My Company Staging",
       "tracked_rds_instances": [
         "staging-primary-db"
-      ]
+      ],
+      "datadog": false
     }
   }
 }
 ```
 
 `tracked_rds_instances` enables Section 3d — a day-by-day cost tracker for specific RDS instances across all snapshots. Each profile can have its own list. Leave empty to skip that section.
+
+`datadog` declares whether Datadog is confirmed to collect container metrics for that account: `true` → Container Insights advice says "Datadog already covers this"; `false` → advice says "verify monitoring first"; omit the key entirely to keep the advice neutral. The analyzer can't detect this from AWS data alone — it only sees containers *named* `datadog` in task definitions — so it has to be declared here.
 
 ---
 

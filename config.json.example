@@ -5,13 +5,15 @@
       "tracked_rds_instances": [
         "my-primary-db",
         "my-replica-db"
-      ]
+      ],
+      "datadog": true
     },
     "staging": {
       "account_label": "My Company Staging",
       "tracked_rds_instances": [
         "staging-primary-db"
-      ]
+      ],
+      "datadog": false
     }
   }
 }
