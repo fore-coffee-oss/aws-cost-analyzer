@@ -957,7 +957,7 @@ def print_log_groups(groups, region_label):
 
     if no_retention:
         print(f"\n  Log groups with no retention policy ({len(no_retention)}):")
-        for g in sorted(no_retention, key=lambda x: -x.get("storedBytes", 0))[:10]:
+        for g in sorted(no_retention, key=lambda x: -x.get("storedBytes", 0)):
             size_gb = g.get("storedBytes", 0) / 1e9
             print(f"    {g['logGroupName']:<55} {size_gb:.2f} GB")
     return total_bytes, no_retention
@@ -1688,8 +1688,11 @@ if log_groups_data and log_groups_data.get("logGroups"):
     no_ret = [g for g in log_groups_data["logGroups"] if "retentionInDays" not in g]
     if no_ret:
         total_gb = sum(g.get("storedBytes", 0) for g in no_ret) / 1e9
+        top_named = sorted(no_ret, key=lambda x: -x.get("storedBytes", 0))[:3]
+        names = ", ".join(g["logGroupName"].rsplit("/", 1)[-1] for g in top_named)
+        suffix = f" — largest: {names}" + (", ..." if len(no_ret) > 3 else "")
         opportunities.append(("MEDIUM", "CLEANUP", 0,
-            f"Set retention on {len(no_ret)} CloudWatch log group(s) with no expiry ({total_gb:.1f} GB accumulating)"))
+            f"Set retention on {len(no_ret)} CloudWatch log group(s) with no expiry ({total_gb:.1f} GB accumulating){suffix}"))
 
 # RDS low utilization
 if rds_data:
