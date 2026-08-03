@@ -1473,7 +1473,7 @@ def convert(text, data_dir=None):
         '<!DOCTYPE html><html lang="en"><head>',
         '<meta charset="UTF-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
-        '<title>AWS Cost Report — Fore Coffee</title>',
+        '<title>AWS Cost Report</title>',
         f'<style>{CSS}</style>',
         '</head><body><div class="page">',
     ]
