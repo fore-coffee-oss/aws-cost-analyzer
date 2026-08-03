@@ -269,3 +269,9 @@ data/YYYY-MM-DD/<profile>/
 - Pricing tables in `analyze.py` and `make_ri_plan.py` are for `ap-southeast-1` (Singapore). Update the constants at the top of each file for your region.
 - The scripts were written with help from [Claude](https://claude.ai). They do not connect to any external service — all AWS access is via the pull script, which you control.
 - Pull frequency: weekly is enough for most teams. Each pull adds a data point; more snapshots means richer cross-snapshot change history.
+
+---
+
+## License
+
+[MIT](LICENSE)
